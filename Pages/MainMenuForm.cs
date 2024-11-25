@@ -41,6 +41,15 @@ namespace TransformerOptimizer
 
         private void btnOpenGraph_Click(object sender, EventArgs e)
         {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is GraphForm)
+                {
+                    form.Activate();
+                    return;
+                }
+            }
+
             if (!isGraphDataSaved)
             {
                 MessageBox.Show("Графики еще не рассчитаны. Выполните расчет сначала.", "Ошибка");
